@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scaleable=no">
+    <title>Projetos | Responsivo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="imagens/fav-icon.png">
+    <link rel="stylesheet" href="imagens/files/files/lightbox.min.css">
+</head>
+<body>
+    
+    <section id="projeto">
+        <!--TITULO-->
+        <div class="projeto-heading">
+            <span>Vamos ver meus trabalhos</span>
+            <h3>Meus Projetos</h3>
+        </div>
+
+        <!--FILTER-->
+        
+        <ul class="projeto-filter">
+            <li class="list projeto-filter-active" data-filter="all">Todos</li>
+            <li class="list" data-filter="app">Aplicações</li>
+            <li class="list" data-filter="design">App Desing</li>
+            <li class="list" data-filter="web">Website Desing</li>
+            <li class="list" data-filter="ai">AI</li>
+        </ul>
+
+         <div class="projeto-conteiner">
+             <a href="imagens/b-1.jpg" class="projeto-box app" data-lightbox="work">
+                 <img src="imagens/b-1.jpg" alt="">
+             </a>
+             <a href="imagens/b-2.jpg" class="projeto-box web" data-lightbox="work">
+                <img src="imagens/b-2.jpg" alt="">
+            </a>
+            <a href="imagens/b-3.jpg" class="projeto-box ai" data-lightbox="work">
+                <img src="imagens/b-3.jpg" alt="">
+            </a>
+            <a href="imagens/b-4.jpg" class="projeto-box design" data-lightbox="work">
+                <img src="imagens/b-4.jpg" alt="">
+            </a>
+            <a href="imagens/b-5.jpg" class="projeto-box design" data-lightbox="work">
+                <img src="imagens/b-5.jpg" alt="">
+            </a>
+            <a href="imagens/b-6.jpg" class="projeto-box app" data-lightbox="work">
+                <img src="imagens/b-6.jpg" alt="">
+            </a>
+         </div>
+
+    </section>
+
+    <script src="imagens/files/files/JQuery.js"></script>
+    <script src="imagens/files/files/lightbox.min.js"></script>
+    <script>
+    
+    /*===============PARA SLELEÇÃO DE MENUS*/
+        $(document).on('click','.projeto-filter li',function(){
+            $(this).addClass('projeto-filter-active').siblings().removeClass('projeto-filter-active')
+        })
+
+    /*=============PARA OS PRJETOS E AS IMAGENS*/
+        $(document).ready(function(){
+            $('.list').click(function(){
+            const value=$(this).attr('data-filter');
+            if(value=='all'){
+                $('.projeto-box').show('1000');
+            }else{
+                $('.projeto-box').not('.'+value).hide('1000');
+                $('.projeto-box').filter('.'+value).show('1000');
+            }
+        })
+        })
+
+    </script>
+
+</body>
+</html>
